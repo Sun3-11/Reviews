@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+## Figma URL
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Reviews](https://www.figma.com/file/e8L2QiR4GVTa5cGuRpXtk3/Reviews?node-id=0%3A1&t=gcCYcePiKxnkJ9kH-1)
 
-## Available Scripts
+## Steps
 
-In the project directory, you can run:
+#### Explore Data
 
-### `npm start`
+Navigate to data.js and take a look at the data structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Import Reviews
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+First, import the reviews data into your project. This data should be an array of objects, with each object representing a person's review and containing properties such as name, job, image URL, and text.
 
-### `npm test`
+#### Setup State Value (Index)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Then, set up a state value that controls which person from the list is displayed.
 
-### `npm run build`
+#### React Icons (Optional)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Docs](https://react-icons.github.io/react-icons/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+npm install react-icons --save
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+App.jsx
 
-### `npm run eject`
+```js
+import { FaBeer } from "react-icons/fa";
+const App = () => {
+  return;
+  <div>
+    <h2>Reviews Starter</h2>;
+    <FaBeer className="beer" />
+  </div>;
+};
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Render First Person
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To render the first person in the list, you can access the first item in the reviews array and use its properties to display the person's image (inline styles), name, job, and review text.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Prev and Next
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To allow the user to cycle through the reviews, you can set up buttons to display the next and previous reviews in the list. You can do this by keeping track of the current index in the reviews array, and updating the index when the user clicks the next or previous button. You can then use the updated index to access the corresponding person's review from the reviews array.
 
-## Learn More
+#### Random
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To allow the user to display a random person's review, you can set up a button with functionality to randomly select an index in the reviews array. You can then use the selected index to display the corresponding person's review.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Extra
 
-### Code Splitting
+The modulus operator in JavaScript is represented by the percent sign (%). It returns the remainder of a division operation between two numbers.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Overall, the flow of the application should look something like this:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Import the reviews data into your project as an array of objects.
+- Set up the reviews data as a state variable using the useState hook.
+- Render the first person's review in the list using their image, name, job, and text properties.
+- Set up buttons to display the next and previous reviews in the list. Keep track of the current index in the reviews array and update it when the user clicks the next or previous button.
+- Set up a button to display a random person's review. This button should select a random index in the reviews array and use it to display the corresponding person's review.
